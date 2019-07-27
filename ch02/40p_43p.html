@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>React! React!</title>
+
+    <!-- 리액트 cdn -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+    #container{
+        padding: 50px;
+        background-color: #eee;
+    }
+    #container h1{
+        font-size: 5em;
+        font-family: sans-serif;
+        color: #0080a8;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- 리액트(jsx)를 이용해 표시할 영역 -->
+    <div id="container"></div>
+
+
+    <script type="text/babel">
+        ReactDOM.render(  // 1개의 tag 묶음만 render가능, render할 위치 표시!
+            <h1>My name!!!</h1>  // tag 묶음.
+            ,document.querySelector('#container') // render위치
+        );
+
+        // render위치 변수화
+        // var destination = document.querySelector('#container');
+        // ReactDOM.render(
+        //     <h1>new My name!!!</h1>  // tag 묶음.
+        //     ,destination // render위치
+        // );
+    </script>
+</body>
+
+</html>
