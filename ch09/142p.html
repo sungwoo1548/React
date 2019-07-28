@@ -36,19 +36,16 @@
             }
         }
 
-        function showCircle() {
-            var colors = [ "red", "blue", "yellow", "green"];
-            var ran = Math.floor( Math.random()*colors.length );
-
-            return <Circle bgColor={colors[ran]}/>
-        };
+        
+        var colors = [ "red", "blue", "yellow", "green"];
+        var renderDate=[];
+        for (var i in colors){
+            renderDate.push(<Circle bgColor={colors[i]}/>)
+        }
 
         ReactDOM.render(
             <div>
-            {showCircle()}
-            {showCircle()}
-            {showCircle()}
-
+                {renderDate}
             </div>            
             ,document.querySelector('#container')
         );
