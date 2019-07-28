@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>React! React!</title>
+
+    <!-- 리액트 cdn -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 리액트(jsx)를 이용해 표시할 영역 -->
+    <div id="container"></div>
+
+
+    <script type="text/babel">
+        class Display extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <p>{this.props.color}</p>
+                        <p>{this.props.num}</p>
+                        <p>{this.props.size}</p>
+                    </div>
+                )
+            }
+        };
+        class Label extends React.Component{
+            render(){
+                return(
+                    <Display color={this.props.color} num={this.props.num} size={this.props.size} />
+                )
+            }
+        };
+        class Shirt extends React.Component{
+            render(){
+                return(
+                    <Label color={this.props.color} num={this.props.num} size={this.props.size} />
+                )
+            }
+        };
+
+        var destination = document.querySelector("#container");
+        ReactDOM.render(
+            <div>
+                <Shirt color="steelblue" num="3.14" size="medium"/>
+            </div>
+            ,destination
+        );
+    </script>
+</body>
+
+</html>
