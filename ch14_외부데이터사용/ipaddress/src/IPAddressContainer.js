@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import IPAddress from "./IPAddress";
 
 class IPAdressContainer extends Component {
     constructor(props) {
@@ -23,10 +24,10 @@ class IPAdressContainer extends Component {
     componentDidMount(){
         this.processRequest();
     }
-    
+
     render() {
         return (
-            <p>{this.state.ip_address}</p>
+            <IPAddress ip={this.state.ip_address}/>
         );
     }
 }
