@@ -96,7 +96,18 @@
                 ref={ (el)=>this._input = el }></input>
                 <button type="submit">go</button>
               </form>
+              <ColorLabel color={this.state.bgColor}/>
             </div>
+          );
+        }
+      }
+
+      var heading = document.querySelector('#colorHeading');
+      class ColorLabel extends React.Component{
+        render(){
+          return ReactDOM.createPortal(
+            ": "+this.props.color
+            ,heading
           );
         }
       }
