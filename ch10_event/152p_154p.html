@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>EVENTS</title>
+
+    <!-- 리액트 cdn -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    
+    <!-- 스타일 -->
+    <style>
+        #container{
+            padding: 50px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 리액트(jsx)를 이용해 표시할 영역 -->
+    <div id="container"></div>
+
+
+    <script type="text/babel">
+        class Counter extends React.Component{
+            render(){
+                var txetStyle = {
+                    fontSize : 72,
+                    fontFamily : "sans-serif",
+                    color : "#333",
+                    fontWeight : "bold",
+                };
+                return (
+                    <div style={txetStyle}>
+                        {this.props.display}
+                    </div>
+                );
+            }
+        }
+
+        class CounterParent extends React.Component{
+            constructor(props){
+                super(props);
+
+                this.state = {
+                    count : 0,  
+                };
+            }
+            
+            render(){
+                var backgroundStyle = {
+                    padding : 50,
+                    backgroundColor : "#ffc53a",
+                    width : 250,
+                    height : 100,
+                    borderRadius : 10,
+                    textAlign : "center",
+                };
+                var buttonStyle = {
+                    fontSize : "1em",
+                    width : 30,
+                    height : 30,
+                    fontFamily : "sans-serif",
+                    color : "#333",
+                    fontWeight : "bold",
+                    lineHeight : "3px",
+                };
+
+                return(
+                    <div style={backgroundStyle}>
+                        <Counter display={this.state.count}/>
+                        <button style={buttonStyle}>+</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <CounterParent/>
+            </div>
+            ,document.querySelector('#container')
+        );
+    </script>
+</body>
+
+</html>
