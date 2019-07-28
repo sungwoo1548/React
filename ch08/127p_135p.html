@@ -29,16 +29,28 @@
             constructor(props) {
                 super(props);
 
-                this.state = {
+                this.state = { // 상태 저장소.. state안에 선언하는 것으로 다른 곳에서 이용가능
                     strikes : 0
                 };
+                this.timerTick = this.timerTick.bind(this); // 컴포넌트에 바인딩해야만 컴포넌트에서 작동함.
             }
+            
+            timerTick(){ // 커스텀 함수 선언
+                this.setState({ // state안의 값을 변경하려면 this.setState함수를 써야함.
+                    strikes : this.state.strikes + 100,  // 변수명이 기존 선언된 것과 동일해야 변경됨. 아니면 오류.
+                });
+            }
+
+            componentDidMount(){ // 이 메소드는 react의 내장 메소드로 본 컴포넌트가 렌더 된 직후 실행된다.
+                setInterval(this.timerTick, 1000);
+            }
+
             render(){
                 return(
                     <div>
                         {this.state.strikes}
                     </div>
-                )
+                );
             }
         }
         class LigthningCounterDisplay extends React.Component{
@@ -56,7 +68,7 @@
                     <div style={divStyle}>
                         <LigthningCounter/>
                     </div>
-                )
+                );
             }
         }
 
