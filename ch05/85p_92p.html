@@ -25,7 +25,18 @@
 
 
     <script type="text/babel">
-        class ColorSquare extends React.Component{};
+        class ColorSquare extends React.Component{
+            render(){
+                var colorsquareStyle = {
+                    height : 150,
+                    backgroundColor : "#FF6663",
+                };
+                return (
+                    <div style={colorsquareStyle}>
+                    </div>
+                )
+            }
+        };
         class Label extends React.Component{};
         class Card extends React.Component{
             render(){
@@ -38,7 +49,7 @@
                 };
                 return(
                     <div style={cardStyle}>
-                    
+                        <ColorSquare/>
                     </div>
                 )
             }
