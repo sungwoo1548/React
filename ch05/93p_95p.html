@@ -29,7 +29,7 @@
             render(){
                 var colorsquareStyle = {
                     height : 150,
-                    backgroundColor : "#FF6663",
+                    backgroundColor : this.props.colorsquare_bgcolor,
                 };
                 return (
                     <div style={colorsquareStyle}>
@@ -46,7 +46,7 @@
                     margin : 0
                 };
                 return (
-                    <p style={labelStyle}>#FF6663</p>
+                    <p style={labelStyle}>{this.props.label_colorvalue}</p>
                 )
             }
         };
@@ -61,8 +61,8 @@
                 };
                 return(
                     <div style={cardStyle}>
-                        <ColorSquare/>
-                        <Label/>
+                        <ColorSquare colorsquare_bgcolor={this.props.input_color}/>
+                        <Label label_colorvalue={this.props.input_color}/>
                     </div>
                 )
             }
@@ -71,7 +71,7 @@
         var destination = document.querySelector("#container");
         ReactDOM.render(
             <div>
-                <Card/>
+                <Card input_color="#FFA737"/>
             </div>
             ,destination
         );
