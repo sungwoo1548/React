@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>React! React!</title>
+
+    <!-- 리액트 cdn -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 리액트(jsx)를 이용해 표시할 영역 -->
+    <div id="container"></div>
+
+
+    <script type="text/babel">
+        class ColorSquare extends React.Component{};
+        class Label extends React.Component{};
+        class Card extends React.Component{
+            render(){
+                var cardStyle={
+                    height : 200,
+                    width : 150,
+                    padding : 0,
+                    backgroundColor : "#FFF",
+                    boxShadow : "0 0 5px #666",
+                };
+                return(
+                    <div style={cardStyle}>
+                    
+                    </div>
+                )
+            }
+        };
+
+        var destination = document.querySelector("#container");
+        ReactDOM.render(
+            <div>
+                <Card/>
+            </div>
+            ,destination
+        );
+    </script>
+</body>
+
+</html>
