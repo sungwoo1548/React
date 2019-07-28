@@ -40,7 +40,9 @@
         var colors = [ "red", "blue", "yellow", "green"];
         var renderDate=[];
         for (var i in colors){
-            renderDate.push(<Circle bgColor={colors[i]}/>)
+            var color=colors[i];
+            // console.log(i+color);
+            renderDate.push(<Circle key={i+color} bgColor={colors[i]}/>)
         }
 
         ReactDOM.render(
