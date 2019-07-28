@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>React! React!</title>
+
+    <!-- 리액트 cdn -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <!-- 스타일 -->
+    <style>
+        #container {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 리액트(jsx)를 이용해 표시할 영역 -->
+    <div id="container"></div>
+
+
+    <script type="text/babel">
+
+        class Letter extends React.Component{
+            render() {
+                var letterStyle = { // 리액트는 클래스 단위로 CSS를 설정하는 것을 추구함...
+                    padding : 10,  // or padding : "10px"
+                    margin : "10px",
+                    backgroundColor : this.props.bgcolor, // 자식의 프로퍼티 사용하겠다는 뜻
+                    color : "#333",
+                    display : "inline-block",
+                    fontFamily : "monospace",
+                    fontSize : "7em",
+                    textAlign : "center",
+                };
+                return(
+                    <div style={letterStyle}>
+                        {this.props.children}
+                    </div>
+                );
+            }   
+        }
+
+        var destination = document.querySelector('#container');
+        ReactDOM.render( 
+            <div>
+               <Letter bgcolor="#58b3ff">A</Letter>
+               <Letter bgcolor="#ff065f">E</Letter>
+               <Letter bgcolor="#ffd52e">I</Letter>
+               <Letter bgcolor="#49dd8e">O</Letter>
+               <Letter bgcolor="#ae99ff">U</Letter>
+            </div>
+            ,destination // render위치
+        );
+    </script>
+</body>
+
+</html>
