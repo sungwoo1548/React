@@ -46,27 +46,53 @@
             }
 
             render(){
+                    var counterStyle={
+                        color : "#66ffff",
+                        fontSize : 50,
+                    };
+                    var count = this.state.strikes.toLocaleString();
                 return(
-                    <div>
+                    <h1 style={counterStyle}>
                         {this.state.strikes}
-                    </div>
+                    </h1>
                 );
             }
         }
         class LigthningCounterDisplay extends React.Component{
             render(){
+                var commonStyle ={
+                    margin : 0,
+                    padding :0,
+                };
                 var divStyle = {
                     width : 250,
                     textAlign : "center",
-                    backgroundColor : "black",
+                    backgroundColor : "gray",
                     padding : 40,
                     fontFamily : "sans-serif",
-                    color : "#999",
+                    color : "#99999",
                     borderRadius : 10,
+                };
+                var textStyle ={
+                    emphasis : {
+                        fontSize :38,
+                        ...commonStyle,
+                    },
+                    smallemphasis : {
+                        ...commonStyle,
+                    },
+                    small : {
+                        fontSize : 17,
+                        opacity : 0.5,
+                        ...commonStyle,
+                    }
                 };
                 return(
                     <div style={divStyle}>
                         <LigthningCounter/>
+                        <h2 style={textStyle.smallemphasis}>LIGHTNING STRIKES</h2>
+                        <h2 style={textStyle.emphasis}>WORLDWIDE</h2>
+                        <p style={textStyle.samll}>(since you loaded this example)</p>
                     </div>
                 );
             }
