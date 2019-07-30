@@ -15,7 +15,7 @@ class Main extends Component {
                 <div>
                     <h1>Simple SPA</h1>
                     <ul className="header">
-                        <li><NavLink to="/">Home</NavLink></li>
+                        <li><NavLink exact to="/">Home</NavLink></li>
                         <li><NavLink to="/stuff">Stuff</NavLink></li>
                         <li><NavLink to="/contact">Contact</NavLink></li>
                     </ul>
