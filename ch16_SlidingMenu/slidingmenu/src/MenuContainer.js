@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import MenuButton from "./MenuButton";
 
 class MenuContianer extends Component {
 
@@ -29,6 +30,7 @@ class MenuContianer extends Component {
     render() {
         return (
             <div>
+                <MenuButton handleMouseDown={this.handleMouseDown}></MenuButton>
                 <div>
                     <p>Can you spot the item that doesn't belong?</p>
                     <ul>
@@ -41,7 +43,6 @@ class MenuContianer extends Component {
                         <li>Consectetur</li>
                     </ul>
                 </div>
-                <button onClick={this.handleMouseDown}>test</button>
             </div>
         );
     };
