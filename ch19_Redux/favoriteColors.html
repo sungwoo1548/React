@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Favorite Colors!!</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.js"></script>
+</head>
+
+<body>
+    <script>
+        function addColor(value) {
+            return {
+                type: "ADD",
+                color: value,
+            };
+        }
+
+        function removeColor(value) {
+            return {
+                type: "REMOVE",
+                color: value,
+            };
+        }
+
+        function favoriteColors(state, action) { //리듀서 함수.. 작성
+            if (state === undefined) { // 상태가 존재하지 않으면 state초기화... 꼭 배열이 아니어도 됨.
+                state = [];
+            }
+            if (action.type === "ADD") { // 위의 function이 action으로 취급됨. ADD면 concat=추가 함.
+                return state.concat(action.color); // state에 color추가한 배열 반환.
+            } else if (action.type === "REMOVE") { // action type이 REMOVE이면 
+                return state.filter(function(item){ // filter는 배열을 반환함.
+                    return item !==action.color; // !== 는 REMOVE type의 color값이 아닌 것들만 반환 = REMOVE의 color값 제외하고 반환 
+                });
+            } else { // action type이 위의 조건에 없으면 그냥 state리턴.
+                return state;
+            }
+        }
+
+        var store = Redux.createStore(favoriteColors); // favoriteColors 리듀서에 해당하는 저장소 생성.
+        store.subscribe(render); //상태 갱신을 리스너 함수 render로 받겠다. ( 함수명은 바뀌어도 됨.)
+        function render(){ // render함수는 로그기록. => 향후 다른 처리 가능
+            console.log(store.getState());
+        };
+
+
+        /// 
+        store.dispatch(addColor("blue"));
+        store.dispatch(addColor("yellow"));
+        store.dispatch(addColor("green"));
+        store.dispatch(addColor("red"));
+        store.dispatch(addColor("gray"));
+        store.dispatch(addColor("orange"));
+        store.dispatch(removeColor("gray"));
+
+        console.log(store.getState());
+    </script>
+
+</body>
+
+</html>
