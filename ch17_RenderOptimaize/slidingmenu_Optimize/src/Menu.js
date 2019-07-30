@@ -3,6 +3,7 @@ import "./Menu.css";
 
 class Menu extends Component{
     render(){
+        console.log("Rendering : Menu");
         var visibility = "hide";
 
         if (this.props.menuVisibility){
